@@ -3,7 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>ToDo</title>
   </head>
-  <body></body>
+  <body>
+    <div>
+      <h1>Todo App</h1>
+      <h2>Create new ToDo</h2>
+      <input type="text" placeholder="Text here" />
+      <button onclick="addTask()">add</button>
+    </div>
+    <div>
+      <h2>To Do List...</h2>
+      <ul></ul>
+    </div>
+  </body>
 </html>
+<script>
+  function addTask() {
+    // find input
+    const inputs = document.getElementsByTagName("input");
+    const input = inputs[0];
+    let inputValue = input.value;
+    // get list
+    const listItem = document.createElement("li");
+    listItem.innerHTML = inputValue;
+    // add list item to list
+    document.getElementsByTagName("ul")[0].appendChild(listItem);
+    input.value = "";
+  }
+</script>
